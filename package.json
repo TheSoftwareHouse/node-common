@@ -1,5 +1,5 @@
 {
-  "name": "node-common",
+  "name": "tsh-node-common",
   "version": "1.0.0",
   "description": "",
   "main": "build/index.js",
