@@ -14,7 +14,8 @@
   "rules": {
     "no-extra-semicolon": false,
     "no-empty-interface": false,
-    "object-literal-sort-keys": false
+    "object-literal-sort-keys": false,
+    "interface-name": [true, "never-prefix"]
   },
   "rulesDirectory": []
 }

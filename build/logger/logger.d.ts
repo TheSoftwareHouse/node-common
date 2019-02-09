@@ -1,2 +1,2 @@
-import { ILogger } from './logger.types';
-export declare const winstonLogger: ILogger;
+import { Logger } from './logger.types';
+export declare const winstonLogger: Logger;

@@ -1,12 +1,12 @@
-export type ILogMethod = (level: string, msg: string) => ILogger;
+export type LogMethod = (level: string, msg: string) => Logger;
 
-export type ILeveledLogMethod = (msg: string) => ILogger;
+export type LeveledLogMethod = (msg: string, error?: any) => Logger;
 
-export interface ILogger {
-  log: ILogMethod;
-  error: ILeveledLogMethod;
-  warn: ILeveledLogMethod;
-  info: ILeveledLogMethod;
-  verbose: ILeveledLogMethod;
-  debug: ILeveledLogMethod;
+export interface Logger {
+  log: LogMethod;
+  error: LeveledLogMethod;
+  warn: LeveledLogMethod;
+  info: LeveledLogMethod;
+  verbose: LeveledLogMethod;
+  debug: LeveledLogMethod;
 }

@@ -1,19 +1,19 @@
 declare module 'jaeger-client' {
   import { Tracer } from 'opentracing';
 
-  type IJaegerConfig = {
+  type JaegerConfig = {
     serviceName: string;
     sampler: { type: string; param: number };
     reporter: { logSpans: boolean; agentHost: string; agentPort: number };
   };
 
-  type IJaegerOptions = {
+  type JaegerOptions = {
     logger: any;
   };
 
-  type IJaegerClient = { initTracer: (config: IJaegerConfig, options: IJaegerOptions) => Tracer };
+  type JaegerClient = { initTracer: (config: JaegerConfig, options: JaegerOptions) => Tracer };
 
-  const jaegerClient: IJaegerClient;
+  const jaegerClient: JaegerClient;
 
   export = jaegerClient;
 }

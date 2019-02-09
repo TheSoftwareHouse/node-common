@@ -1,19 +1,19 @@
 import { initTracer as initJaegerClientTracer } from 'jaeger-client';
 import { FORMAT_HTTP_HEADERS, Span, SpanContext, Tracer } from 'opentracing';
-import { ILogger } from '../logger/logger.types';
+import { Logger } from '../logger/logger.types';
 
-export interface ITracingId {
+export interface TracingId {
   [key: string]: string;
 }
 
-export interface ITags {
+export interface TraceTags {
   [key: string]: any;
 }
 
 export class CallTracer {
   constructor(private tracer: Tracer) {}
 
-  public async traceCall(name: string, call: (span: Span) => void, tags?: ITags, childOf?: Span | SpanContext) {
+  public async traceCall(name: string, call: (span: Span) => void, tags?: TraceTags, childOf?: Span | SpanContext) {
     const span = this.tracer.startSpan(name, { childOf, tags });
 
     await call(span);
@@ -34,7 +34,7 @@ export class CallTracer {
   }
 }
 
-export const initTracer = (logger?: ILogger): CallTracer =>
+export const initTracer = (logger?: Logger): CallTracer =>
   new CallTracer(
     initJaegerClientTracer(
       {
