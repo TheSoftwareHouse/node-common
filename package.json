@@ -1,9 +1,12 @@
 {
-  "name": "tsh-node-common",
+  "name": "@tshio/node-common",
   "version": "2.0.0",
   "description": "",
   "main": "build/index.js",
   "types": "build/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "jest --coverage",
     "test-watch": "jest --watch",
