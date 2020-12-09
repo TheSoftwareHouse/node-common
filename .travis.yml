@@ -1,14 +1,27 @@
 language: node_js
 node_js:
-  - 14
-services:
-  - docker
-#before_script:
-#  - npm install
-jobs:
-  include:
-    - stage: compile
-      if: branch = main
-      name: "Compile TypeScript and Lint"
-      script:
-        - echo "node-common test"
+  - 12
+
+before_script:
+  - npm install
+  - npm run bootstrap
+
+script:
+  - npm run build
+  - npm run integration
+
+before_deploy:
+  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
+  - git remote add pub https://github.com/TheSoftwareHouse/node-common.git -f
+  - git checkout master
+  - npm install
+  - npm run bootstrap
+  - npm run build
+
+deploy:
+  provider: script
+  script: npm run publish
+  skip_cleanup: true
+  on:
+    tags: false
+    branch: master
