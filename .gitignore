@@ -1,4 +1,8 @@
-.idea
 node_modules
-coverage
+dist
+.idea
 .DS_Store
+.workspace
+*.js
+*.js.map
+lerna-debug.log
