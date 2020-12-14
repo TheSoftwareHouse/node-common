@@ -13,6 +13,7 @@ node-common are set of useful tools for developing Node.js applications.
 This repo is a monorepo which contains the libs:
 
 - [Command Bus](https://github.com/TheSoftwareHouse/node-common/tree/master/packages/command-bus)
+- [Query Bus](https://github.com/TheSoftwareHouse/node-common/tree/master/packages/query-bus)
 
 ## Setting up for local development
 

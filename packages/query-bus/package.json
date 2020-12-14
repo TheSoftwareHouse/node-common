@@ -1,12 +1,12 @@
 {
-  "name": "@tshio/command-bus",
+  "name": "@tshio/query-bus",
   "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/TheSoftwareHouse/node-common.git"
   },
   "private": false,
-  "description": "Command Bus",
+  "description": "Query Bus",
   "author": "tsh.io",
   "license": "MIT",
   "main": "dist/index.js",
