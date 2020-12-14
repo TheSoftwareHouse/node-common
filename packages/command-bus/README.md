@@ -21,13 +21,13 @@ yarn add @tshio/command-bus
 
 ```ts
 // CommonJS
-const { Command, CommandBus, CommandHandler } = require('@tshio/node-common');
+const { Command, CommandBus, CommandHandler } = require('@tshio/command-bus');
 
 // ES Module
-import { Command, CommandBus, CommandHandler } from '@tshio/node-common';
+import { Command, CommandBus, CommandHandler } from '@tshio/command-bus';
 
 
-default class TestHandler implements CommandHandler<Command<string>> {
+class TestHandler implements CommandHandler<Command<string>> {
   public commandType: string = "test-type";
 
   async execute(command: Command<string>) {

@@ -16,10 +16,11 @@ export class CommandBus {
   private availableHandlers: CommandHandlers;
 
   constructor(commandHandlers: CommandHandler[]) {
-    this.availableHandlers = commandHandlers.reduce((handlers: CommandHandlers, handler) => {
-      handlers[handler.commandType] = handler;
-      return handlers;
-    }, {});
+    this.availableHandlers = {};
+
+    commandHandlers.forEach((commandHandler) => {
+      this.availableHandlers[commandHandler.commandType] = commandHandler;
+    }, this);
   }
 
   public execute(command: any) {

@@ -11,10 +11,12 @@
     }
   },
   "packages": [
-    "packages/command-bus"
+    "packages/command-bus",
+    "packages/query-bus"
   ],
   "version": "independent",
   "workspaces": [
-    "packages/command-bus"
+    "packages/command-bus",
+    "packages/query-bus"
   ]
 }
