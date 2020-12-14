@@ -1,0 +1,46 @@
+{
+  "name": "@tshio/awilix-resolver",
+  "version": "1.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheSoftwareHouse/node-common.git"
+  },
+  "private": false,
+  "description": "Awilix Resolver",
+  "author": "tsh.io",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "docs": "typedoc --options typedoc.js",
+    "build": "npm run clean && npm run compile && npm run generate-types && npm run copy-license-file",
+    "generate-types": "tsc --declaration ./src/**/*.ts --outDir ./dist",
+    "generate-api-doc": "jsdoc2md --template README.hbs --files ./dist/**/* > README.md",
+    "copy-license-file": "cp ./LICENSE ./dist/",
+    "clean": "rimraf -rf ./dist",
+    "compile": "tsc -p tsconfig.build.json",
+    "prepublishOnly": "npm run build",
+    "test": "npm run build",
+    "integration": "mocha dist/tests/**/*.spec.js --exit"
+  },
+  "devDependencies": {
+    "@types/chai": "4.2.14",
+    "@types/mocha": "8.2.0",
+    "chai-as-promised": "7.1.1",
+    "chai": "4.2.0",
+    "jsdoc-to-markdown": "6.0.1",
+    "mocha": "8.2.1",
+    "typedoc": "0.19.2",
+    "typedoc-plugin-markdown": "3.1.1"
+  },
+  "gitHead": "e0ccfaa5a40c9800fa23d0111088c442bd18ec89",
+  "dependencies": {
+    "awilix": "4.3.1"
+  }
+}
