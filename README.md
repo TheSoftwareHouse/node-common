@@ -14,6 +14,8 @@ This repo is a monorepo which contains the libs:
 
 - [Command Bus](https://github.com/TheSoftwareHouse/node-common/tree/master/packages/command-bus)
 - [Query Bus](https://github.com/TheSoftwareHouse/node-common/tree/master/packages/query-bus)
+- [Event Dispatcher](https://github.com/TheSoftwareHouse/node-common/tree/master/packages/event-dispatcher)
+- [Logger](https://github.com/TheSoftwareHouse/node-common/tree/master/packages/logger)
 
 ## Setting up for local development
 
