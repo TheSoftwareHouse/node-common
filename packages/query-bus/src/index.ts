@@ -24,7 +24,7 @@ export class QueryBus {
 
     queryHandlers.forEach((queryHandler) => {
       this.availableHandlers[queryHandler.queryType] = queryHandler;
-    });
+    }, this);
   }
 
   public execute(query: Query<any>): Promise<QueryResult<any>> {

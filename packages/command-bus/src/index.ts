@@ -20,7 +20,7 @@ export class CommandBus {
 
     commandHandlers.forEach((commandHandler) => {
       this.availableHandlers[commandHandler.commandType] = commandHandler;
-    });
+    }, this);
   }
 
   public execute(command: any) {
