@@ -1,12 +1,12 @@
 {
-  "name": "@tshio/logger",
+  "name": "@tshio/event-dispatcher",
   "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/TheSoftwareHouse/node-common.git"
   },
   "private": false,
-  "description": "Logger",
+  "description": "Event Dispatcher",
   "author": "tsh.io",
   "license": "MIT",
   "main": "dist/index.js",
@@ -41,6 +41,6 @@
   },
   "gitHead": "e0ccfaa5a40c9800fa23d0111088c442bd18ec89",
   "dependencies": {
-    "winston": "^3.3.3"
+    "@tshio/logger": "^1.0.1"
   }
 }

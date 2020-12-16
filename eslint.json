@@ -22,7 +22,7 @@
     "no-underscore-dangle": "off",
     "no-useless-constructor": "off",
     "class-methods-use-this": "off",
-    "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "never" }],
+    "@typescript-eslint/interface-name-prefix" : "off",
     "no-empty-interface": "off",
     "ordered-imports": "off",
     "object-literal-sort-keys": "off",

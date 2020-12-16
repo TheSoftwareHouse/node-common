@@ -13,12 +13,14 @@
   "packages": [
     "packages/command-bus",
     "packages/query-bus",
+    "packages/event-dispatcher",
     "packages/logger"
   ],
   "version": "independent",
   "workspaces": [
     "packages/command-bus",
     "packages/query-bus",
+    "packages/event-dispatcher",
     "packages/logger"
   ]
 }
