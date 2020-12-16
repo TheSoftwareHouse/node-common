@@ -14,6 +14,7 @@
     "packages/command-bus",
     "packages/query-bus",
     "packages/event-dispatcher",
+    "packages/awilix-resolver",
     "packages/logger"
   ],
   "version": "independent",
@@ -21,6 +22,7 @@
     "packages/command-bus",
     "packages/query-bus",
     "packages/event-dispatcher",
+    "packages/awilix-resolver",
     "packages/logger"
   ]
 }

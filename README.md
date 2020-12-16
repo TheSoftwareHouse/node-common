@@ -16,6 +16,7 @@ This repo is a monorepo which contains the libs:
 - [Query Bus](https://github.com/TheSoftwareHouse/node-common/tree/master/packages/query-bus)
 - [Event Dispatcher](https://github.com/TheSoftwareHouse/node-common/tree/master/packages/event-dispatcher)
 - [Logger](https://github.com/TheSoftwareHouse/node-common/tree/master/packages/logger)
+- [Awilix Resolver](https://github.com/TheSoftwareHouse/node-common/tree/master/packages/awilix-resolver)
 
 ## Setting up for local development
 
