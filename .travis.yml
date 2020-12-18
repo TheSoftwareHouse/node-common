@@ -20,7 +20,9 @@ before_deploy:
 
 deploy:
   provider: script
-  script: npm run publish
+  script:
+    - npm run generate-types
+    - npm run publish
   skip_cleanup: true
   on:
     tags: false

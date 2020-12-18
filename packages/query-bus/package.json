@@ -1,6 +1,6 @@
 {
   "name": "@tshio/query-bus",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/TheSoftwareHouse/node-common.git"
@@ -20,7 +20,7 @@
   "scripts": {
     "docs": "typedoc --options typedoc.js",
     "build": "npm run clean && npm run compile && npm run generate-types && npm run copy-license-file",
-    "generate-types": "tsc --declaration ./src/**/*.ts --outDir ./dist",
+    "generate-types": "tsc --declaration ./src/index.ts --outDir ./dist",
     "generate-api-doc": "jsdoc2md --template README.hbs --files ./dist/**/* > README.md",
     "copy-license-file": "cp ./LICENSE ./dist/",
     "clean": "rimraf -rf ./dist",
