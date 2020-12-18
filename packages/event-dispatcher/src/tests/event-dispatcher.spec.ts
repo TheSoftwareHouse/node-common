@@ -12,7 +12,7 @@ type SpiedObject<T extends object> = { [K in keyof T]: T[K] extends Function ? S
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const logger = console;
+const logger = console as any;
 
 type StubSubscriber = EventSubscriberInterface & {
   logEmail(event: Event): Promise<void>;
