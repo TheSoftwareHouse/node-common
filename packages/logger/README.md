@@ -21,13 +21,24 @@ yarn add @tshio/logger
 
 ```ts
 // CommonJS
-const { winstonLogger } = require('@tshio/logger');
+const { createLogger } = require('@tshio/logger');
 
 // ES Module
-import { winstonLogger } from '@tshio/logger';
+import { createLogger } from '@tshio/logger';
 
-winstonLogger.info("Example info");
-somePromise.catch((e) => winstonLogger.debug("Some error", e));
+const logger = createLogger();
+const obfuscateLogger = createLogger(["secure"]);
+
+const objectToLog = {
+  key1: "value",
+  secure: "secure data" // hide data
+}
+
+
+obfuscateLogger.info(objectToLog);
+
+logger.info("Example info");
+somePromise.catch((e) => logger.debug("Some error", e));
 ```
 
 ## License
