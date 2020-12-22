@@ -1,28 +1,28 @@
-language: node_js
-node_js:
-  - 12
-
-before_script:
-  - npm install
-  - npm run bootstrap
-
-script:
-  - npm run build
-  - npm run integration
-
-before_deploy:
-  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
-  - git remote add pub https://github.com/TheSoftwareHouse/node-common.git -f
-  - git checkout master
-  - npm install
-  - npm run bootstrap
-  - npm run build
-  - npm run generate-types
-
-deploy:
-  provider: script
-  script: npm run publish
-  skip_cleanup: true
-  on:
-    tags: false
-    branch: master
+#language: node_js
+#node_js:
+#  - 12
+#
+#before_script:
+#  - npm install
+#  - npm run bootstrap
+#
+#script:
+#  - npm run build
+#  - npm run integration
+#
+#before_deploy:
+#  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
+#  - git remote add pub https://github.com/TheSoftwareHouse/node-common.git -f
+#  - git checkout master
+#  - npm install
+#  - npm run bootstrap
+#  - npm run build
+#  - npm run generate-types
+#
+#deploy:
+#  provider: script
+#  script: npm run publish
+#  skip_cleanup: true
+#  on:
+#    tags: false
+#    branch: master
