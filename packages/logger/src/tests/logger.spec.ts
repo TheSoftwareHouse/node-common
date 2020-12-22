@@ -3,7 +3,7 @@ import { createLogger } from "..";
 
 describe("logger", () => {
   it("Check logger format", async () => {
-    const winstonLogger = createLogger(["secure"]);
+    const winstonLogger = createLogger(process.env, ["secure"]);
 
     class Circular {
       constructor() {
