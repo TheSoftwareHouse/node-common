@@ -44,7 +44,7 @@ const logFormat = (
     });
   });
 
-export const createLogger = (keysToHide: string[], env = process.env) =>
+export const createLogger = (env = process.env, keysToHide?: string[]) =>
   winston.createLogger({
     level: env.LOGGING_LEVEL || "debug",
     format: winston.format.combine(winston.format.splat(), logFormat(env, keysToHide)),
