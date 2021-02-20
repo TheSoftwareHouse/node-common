@@ -12,6 +12,12 @@ interface CommandHandlers {
   [key: string]: CommandHandler;
 }
 
+export class CommandNotSupportedError extends Error {
+  constructor(message?: string) {
+    super(message);
+  }
+}
+
 export class CommandBus {
   private availableHandlers: CommandHandlers;
 
@@ -25,7 +31,7 @@ export class CommandBus {
 
   public execute(command: any) {
     if (!this.availableHandlers[command.type]) {
-      return Promise.reject(new Error(`Command: ${command.type} is not supported.`));
+      return Promise.reject(new CommandNotSupportedError(`Command: ${command.type} is not supported.`));
     }
 
     return this.availableHandlers[command.type].execute(command);
