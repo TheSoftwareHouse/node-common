@@ -1,3 +1,5 @@
+/* eslint max-classes-per-file: "off" */
+
 export interface Command<T> {
   type: string;
   payload: T;
@@ -12,11 +14,7 @@ interface CommandHandlers {
   [key: string]: CommandHandler;
 }
 
-export class CommandNotSupportedError extends Error {
-  constructor(message?: string) {
-    super(message);
-  }
-}
+export class CommandNotSupportedError extends Error {}
 
 export class CommandBus {
   private availableHandlers: CommandHandlers;
