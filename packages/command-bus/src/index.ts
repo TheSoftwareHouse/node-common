@@ -1,3 +1,5 @@
+import { CommandNotSupportedError } from "./errors/command-not-supported.error";
+
 export interface Command<T> {
   type: string;
   payload: T;
@@ -25,9 +27,11 @@ export class CommandBus {
 
   public execute(command: any) {
     if (!this.availableHandlers[command.type]) {
-      return Promise.reject(new Error(`Command: ${command.type} is not supported.`));
+      return Promise.reject(new CommandNotSupportedError(`Command: ${command.type} is not supported.`));
     }
 
     return this.availableHandlers[command.type].execute(command);
   }
 }
+
+export { CommandNotSupportedError };
