@@ -1,4 +1,4 @@
-/* eslint max-classes-per-file: "off" */
+import { CommandNotSupportedError } from "./errors/command-not-supported.error";
 
 export interface Command<T> {
   type: string;
@@ -13,8 +13,6 @@ export interface CommandHandler<T extends Command<any> = Command<any>> {
 interface CommandHandlers {
   [key: string]: CommandHandler;
 }
-
-export class CommandNotSupportedError extends Error {}
 
 export class CommandBus {
   private availableHandlers: CommandHandlers;
@@ -35,3 +33,5 @@ export class CommandBus {
     return this.availableHandlers[command.type].execute(command);
   }
 }
+
+export { CommandNotSupportedError };
