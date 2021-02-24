@@ -33,3 +33,5 @@ export class CommandBus {
     return this.availableHandlers[command.type].execute(command);
   }
 }
+
+export { CommandNotSupportedError };
