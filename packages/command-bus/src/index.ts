@@ -10,14 +10,14 @@ export interface CommandHandler<T extends Command<any> = Command<any>> {
   execute: (command: T) => Promise<any>;
 }
 
-interface CommandHandlers {
-  [key: string]: CommandHandler;
-}
+type ResultForCommand<TRegisteredCommandHandlers extends CommandHandler[], TCommand extends Command<any>> = Promise<
+  ReturnType<Extract<TRegisteredCommandHandlers[number], { execute: (cmd: TCommand) => any }>["execute"]>
+>;
 
-export class CommandBus {
-  private availableHandlers: CommandHandlers;
+export class CommandBus<TRegisteredCommandHandlers extends CommandHandler[] = CommandHandler<any>[]> {
+  private availableHandlers: Record<string, TRegisteredCommandHandlers[number]>;
 
-  constructor(commandHandlers: CommandHandler[]) {
+  constructor(commandHandlers: TRegisteredCommandHandlers) {
     this.availableHandlers = {};
 
     commandHandlers.forEach((commandHandler) => {
@@ -25,7 +25,9 @@ export class CommandBus {
     }, this);
   }
 
-  public execute(command: any) {
+  public execute<TCommand extends Command<any> = any>(
+    command: TCommand,
+  ): ResultForCommand<TRegisteredCommandHandlers, TCommand> {
     if (!this.availableHandlers[command.type]) {
       return Promise.reject(new CommandNotSupportedError(`Command: ${command.type} is not supported.`));
     }
