@@ -1,3 +1,5 @@
+import { QueryNotSupportedError } from "./errors/query-not-supported.error";
+
 export interface Query<T> {
   type: string;
   payload: T;
@@ -29,7 +31,7 @@ export class QueryBus<TRegisteredQueryHandlers extends QueryHandler<any, any>[]>
 
   public execute<TQuery extends Query<any>>(query: TQuery): ResultForQuery<TRegisteredQueryHandlers, TQuery> {
     if (!this.availableHandlers[query.type]) {
-      return Promise.reject(new Error(`Query: ${query.type} is not supported.`));
+      return Promise.reject(new QueryNotSupportedError(`Query: ${query.type} is not supported.`));
     }
 
     return this.availableHandlers[query.type].execute(query);
