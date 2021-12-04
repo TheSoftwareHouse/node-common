@@ -27,6 +27,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/chai-as-promised": "^7.1.4",
     "@types/mocha": "8.2.0",
     "@types/node": "14.14.13",
     "@typescript-eslint/eslint-plugin": "4.9.1",
@@ -52,10 +53,10 @@
     "uuid": "8.3.2"
   },
   "dependencies": {
+    "@tshio/awilix-resolver": "file:packages/awilix-resolver",
     "@tshio/command-bus": "file:packages/command-bus",
-    "@tshio/query-bus": "file:packages/query-bus",
     "@tshio/event-dispatcher": "file:packages/event-dispatcher",
     "@tshio/logger": "file:packages/logger",
-    "@tshio/awilix-resolver": "file:packages/awilix-resolver"
+    "@tshio/query-bus": "file:packages/query-bus"
   }
 }
