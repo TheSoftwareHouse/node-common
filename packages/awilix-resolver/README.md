@@ -7,14 +7,18 @@
 
 This is a 100% JavaScript library, with TypeScript definition, with the Promise API.
 
+Awilix version required 4.3.1 or above
+
 ## Installing
 
 ```bash
 $ npm install @tshio/awilix-resolver
+$ npm install awilix
 ```
 or
 ```bash
-yarn add @tshio/awilix-resolver
+$ yarn add @tshio/awilix-resolver
+$ yarn add awilix
 ```
 
 ## Usage

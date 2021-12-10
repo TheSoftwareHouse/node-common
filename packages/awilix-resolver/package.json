@@ -40,7 +40,7 @@
     "typedoc-plugin-markdown": "3.1.1"
   },
   "gitHead": "e0ccfaa5a40c9800fa23d0111088c442bd18ec89",
-  "dependencies": {
-    "awilix": "4.3.1"
+  "peerDependencies": {
+    "awilix": ">=4.3.1"
   }
 }
