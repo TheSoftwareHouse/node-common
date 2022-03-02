@@ -6,7 +6,7 @@
   "env": {
     "mocha": true
   },
-  "plugins": ["prettier", "unicorn"],
+  "plugins": ["prettier", "unicorn", "import"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json"
