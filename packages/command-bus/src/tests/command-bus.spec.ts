@@ -1,6 +1,6 @@
 import "mocha";
 import { expect, use } from "chai";
-import * as chaiAsPromised from "chai-as-promised";
+import chaiAsPromised from "chai-as-promised";
 import { Command, CommandBus, CommandHandler } from "../index";
 
 use(chaiAsPromised);

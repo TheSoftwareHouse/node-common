@@ -15,7 +15,7 @@ type ResultForCommand<TRegisteredCommandHandlers extends CommandHandler[], TComm
 >;
 
 export class CommandBus<TRegisteredCommandHandlers extends CommandHandler[] = CommandHandler<any>[]> {
-  private availableHandlers: Record<string, TRegisteredCommandHandlers[number]>;
+  private readonly availableHandlers: Record<string, TRegisteredCommandHandlers[number]>;
 
   constructor(commandHandlers: TRegisteredCommandHandlers) {
     this.availableHandlers = {};

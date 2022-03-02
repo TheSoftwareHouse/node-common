@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 import "mocha";
 import { expect, use } from "chai";
-import * as chaiAsPromised from "chai-as-promised";
+import chaiAsPromised from "chai-as-promised";
 import { Query, QueryBus, QueryHandler, QueryResult } from "..";
 
 use(chaiAsPromised);

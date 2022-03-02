@@ -1,6 +1,6 @@
 import { deepEqual, fail } from "assert";
 import { use } from "chai";
-import * as chaiAsPromised from "chai-as-promised";
+import chaiAsPromised from "chai-as-promised";
 import "mocha";
 import { Event, EventDispatcher, EventSubscriberInterface } from "..";
 
@@ -19,7 +19,7 @@ type StubSubscriber = EventSubscriberInterface & {
   sendEmail(event: Event): Promise<void>;
 };
 
-const stubSubscriber = ({
+const stubSubscriber = {
   getSubscribedEvents() {
     return [
       { name: "userCreated", method: "sendEmail" },
@@ -34,7 +34,7 @@ const stubSubscriber = ({
   async sendEmail(event: Event) {
     stubSubscriber.sendEmail.calledWith = event;
   },
-} as unknown) as SpiedObject<StubSubscriber>;
+} as unknown as SpiedObject<StubSubscriber>;
 
 describe("event dispatcher", () => {
   it("it support event subscribers", async () => {
@@ -44,8 +44,8 @@ describe("event dispatcher", () => {
     const testEvent = { name: "testEvent", payload: { foo: 1, bar: 2, baz: 3 } };
     const userCreatedEvent = { name: "userCreated", payload: { userId: 1 } };
 
-    dispatcher.dispatch(testEvent);
-    dispatcher.dispatch(userCreatedEvent);
+    await dispatcher.dispatch(testEvent);
+    await dispatcher.dispatch(userCreatedEvent);
 
     deepEqual(stubSubscriber.logEmail.calledWith, testEvent);
     deepEqual(stubSubscriber.sendEmail.calledWith, userCreatedEvent);
@@ -71,7 +71,7 @@ describe("event dispatcher", () => {
       fail("event was not fired");
     });
 
-    dispatcher.dispatch(stubEvent);
+    await dispatcher.dispatch(stubEvent);
   });
 
   it("it support async operations", (done) => {
