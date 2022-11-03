@@ -8,6 +8,7 @@ export function asDictionary<T>(dictionary: { [key: string]: Resolver<T> }) {
         newDictionary[key] = container.build(value);
       });
       return newDictionary;
+
     },
   };
 }
