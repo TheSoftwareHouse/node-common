@@ -13,7 +13,7 @@
   },
   "repository": {
     "url": "git@github.com:TheSoftwareHouse/node-common.git",
-    "defaultBranch": "main",
+    "defaultBranch": "chore/migrate-from-lerna-to-rush",
     "defaultRemote": "origin"
   },
   "eventHooks": {
