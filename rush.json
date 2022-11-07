@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
+  "rushVersion": "5.82.1",
+  "npmVersion": "6.14.15",
+  "nodeSupportedVersionRange": ">=16.13.0",
+  "suppressNodeLtsWarning": false,
+  "ensureConsistentVersions": true,
+  "projectFolderMinDepth": 2,
+  "projectFolderMaxDepth":3,
+  "allowMostlyStandardPackageNames": false,
+  "gitPolicy": {
+    "versionBumpCommitMessage": "chore: 🤖 applying package updates"
+  },
+  "repository": {
+    "url": "git@github.com:TheSoftwareHouse/node-common.git",
+    "defaultBranch": "main",
+    "defaultRemote": "origin"
+  },
+  "eventHooks": {
+    "preRushInstall": [],
+    "postRushInstall": [],
+    "preRushBuild": [],
+    "postRushBuild": []
+  },
+  "variants": [],
+  "telemetryEnabled": false,
+  "hotfixChangeEnabled": false,
+  "allowedProjectTags": [ "tools" ],
+  "projects": [
+    {
+      "packageName": "@tshio/awilix-resolver",
+      "projectFolder": "packages/awilix-resolver",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@tshio/command-bus",
+      "projectFolder": "packages/command-bus",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@tshio/event-dispatcher",
+      "projectFolder": "packages/event-dispatcher",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@tshio/logger",
+      "projectFolder": "packages/logger",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@tshio/query-bus",
+      "projectFolder": "packages/query-bus",
+      "shouldPublish": true
+    }
+  ]
+}

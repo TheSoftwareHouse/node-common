@@ -13,9 +13,8 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
-      - run: rush install
-      - run: rush update
-      - run: rush link
-      - run: rush publish -p -b master --include-all --set-access-level=public
+      - run: node common/scripts/install-run-rush.js install
+      - run: node common/scripts/install-run-rush.js build
+      - run: npm run publish -p
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -8,9 +8,6 @@
     "examples/*"
   ],
   "scripts": {
-    "clean": "rush clean",
-    "docs": "lerna run docs",
-    "build": "rush build",
     "lint": "./node_modules/.bin/eslint -c ./eslint.json --ext .ts .",
     "watch": "rm -rf ./build/* && ./node_modules/.bin/tsc -w --pretty --skipLibCheck",
     "format": "prettier --write \"**/**/*.ts\""
