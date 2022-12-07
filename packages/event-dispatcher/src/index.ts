@@ -55,14 +55,12 @@ export class EventDispatcher {
     this.logger.debug(`Dispatching event ${event.name}@${JSON.stringify(event.payload)}`);
 
     const promises = this.subscribers
-
-    if (!this.throwOnFailure){
-      promises
       .filter((s) => s.name === event.name)
       .map(({ subscriber }) =>
-        subscriber(event).catch((e) => this.logger.debug(`Subscriber failed to handle event ${event.name}`, e)),
+        this.throwOnFailure
+          ? subscriber(event)
+          : subscriber(event).catch((e) => this.logger.debug(`Subscriber failed to handle event ${event.name}`, e)),
       );
-    }
 
     await Promise.all(promises);
   }
