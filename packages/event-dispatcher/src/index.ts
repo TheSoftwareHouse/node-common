@@ -17,15 +17,17 @@ type Subscribers = { name: string; subscriber: Subscriber };
 
 export class EventDispatcher {
   private logger: Logger;
+  private throwOnFailure: boolean;
 
   private subscribers: Subscribers[] = [];
 
-  constructor(logger: Logger, eventSubscribers: EventSubscriberInterface[] = []) {
+  constructor(logger: Logger, eventSubscribers: EventSubscriberInterface[] = [], throwOnFailure = false) {
     if (eventSubscribers) {
       this.addSubscribers(eventSubscribers);
     }
 
     this.logger = logger;
+    this.throwOnFailure = throwOnFailure;
   }
 
   public subscribe(name: string, subscriber: Subscriber) {
@@ -53,10 +55,14 @@ export class EventDispatcher {
     this.logger.debug(`Dispatching event ${event.name}@${JSON.stringify(event.payload)}`);
 
     const promises = this.subscribers
+
+    if (!this.throwOnFailure){
+      promises
       .filter((s) => s.name === event.name)
       .map(({ subscriber }) =>
         subscriber(event).catch((e) => this.logger.debug(`Subscriber failed to handle event ${event.name}`, e)),
       );
+    }
 
     await Promise.all(promises);
   }
