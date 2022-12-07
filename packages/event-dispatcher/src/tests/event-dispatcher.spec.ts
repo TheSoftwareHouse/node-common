@@ -117,4 +117,24 @@ describe("event dispatcher", () => {
       })
       .finally(() => done());
   });
+
+  it("Error thrown by a Subscriber shouldn't be caught when throwOnFailure flag is set to true", (done) => {
+    const dispatcher = new EventDispatcher(logger, [], true);
+
+    dispatcher.addSubscriber(stubSubscriber);
+
+    dispatcher.subscribe("test", async () => {
+      await delay(10);
+      throw new Error("SomethingBadHappend");
+    });
+
+    dispatcher
+      .dispatch({
+        name: "test",
+        payload: { foo: 1 },
+      })
+      .catch(() => {
+        done();
+      });
+  });
 });
