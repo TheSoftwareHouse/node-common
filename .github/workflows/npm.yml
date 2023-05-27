@@ -13,8 +13,8 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
-      - run: npm run bootstrap
-      - run: npm run build
-      - run: npm run publish
+      - run: node common/scripts/install-run-rush.js install
+      - run: node common/scripts/install-run-rush.js build
+      - run: npm run publish -p
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

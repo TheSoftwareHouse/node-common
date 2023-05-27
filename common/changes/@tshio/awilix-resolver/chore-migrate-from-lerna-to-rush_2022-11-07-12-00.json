@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@tshio/awilix-resolver",
+      "comment": "Project refactor",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@tshio/awilix-resolver"
+}

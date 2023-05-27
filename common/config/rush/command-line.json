@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/command-line.schema.json",
+  "commands": [
+    {
+      "name": "integration",
+      "commandKind": "bulk",
+      "summary": "Run linter on each package",
+      "description": "Iterates through each package in the monorepo and runs the 'integration' script",
+      "enableParallelism": true,
+      "ignoreMissingScript": true,
+      "ignoreDependencyOrder": true,
+      "allowWarningsInSuccessfulBuild": false
+    }
+  ]
+}
